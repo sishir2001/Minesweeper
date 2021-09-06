@@ -29,14 +29,17 @@ class MainActivity : AppCompatActivity() {
                     getString(R.string.easy) ->{
                         gameintent.putExtra("rows",8)
                         gameintent.putExtra("columns",8)
+                        gameintent.putExtra("mines",16)
                     }
                     getString(R.string.medium) ->{
                         gameintent.putExtra("rows",9)
                         gameintent.putExtra("columns",8)
+                        gameintent.putExtra("mines",18)
                     }
                     getString(R.string.hard) ->{
                         gameintent.putExtra("rows",10)
                         gameintent.putExtra("columns",8)
+                        gameintent.putExtra("mines",20)
                     }
                 }
                 startActivity(gameintent)
