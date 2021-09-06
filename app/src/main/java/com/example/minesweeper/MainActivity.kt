@@ -1,6 +1,7 @@
 package com.example.minesweeper
 
 import android.content.Context
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.*
@@ -19,24 +20,29 @@ class MainActivity : AppCompatActivity() {
         loadData()
         btnStart = findViewById(R.id.buttonStart)
         diffLevel = findViewById(R.id.radioGroup1)
+        val gameintent = Intent(this,GameActivity::class.java)
         btnStart.setOnClickListener {
             val checkedId = diffLevel.checkedRadioButtonId
             if(checkedId != -1){
                 val checkedRadioButton = findViewById<RadioButton>(checkedId)
                 when(checkedRadioButton.text){
                     getString(R.string.easy) ->{
-                        Toast.makeText(this,"easy",Toast.LENGTH_SHORT).show()
+                        gameintent.putExtra("rows",8)
+                        gameintent.putExtra("columns",8)
                     }
                     getString(R.string.medium) ->{
-                        Toast.makeText(this,"medium",Toast.LENGTH_SHORT).show()
+                        gameintent.putExtra("rows",9)
+                        gameintent.putExtra("columns",8)
                     }
                     getString(R.string.hard) ->{
-                        Toast.makeText(this,"hard",Toast.LENGTH_SHORT).show()
+                        gameintent.putExtra("rows",10)
+                        gameintent.putExtra("columns",8)
                     }
                 }
+                startActivity(gameintent)
             }
             else{
-                Toast.makeText(this,"None clicked",Toast.LENGTH_SHORT).show()
+                Toast.makeText(this,"Select A Difficulty Level",Toast.LENGTH_SHORT).show()
             }
         }
     }

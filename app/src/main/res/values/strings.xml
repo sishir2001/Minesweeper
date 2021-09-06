@@ -10,4 +10,7 @@
     <string name="medium">Medium</string>
     <string name="hard">Hard</string>
     <string name="start">Start</string>
+    <string name="mines">Mines</string>
+    <string name="restart">Restart</string>
+    <string name="time">Time</string>
 </resources>
