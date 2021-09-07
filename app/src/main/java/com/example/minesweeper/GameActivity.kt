@@ -151,7 +151,7 @@ class GameActivity : AppCompatActivity() {
 //                arrMines[i][j].btn.isEnabled = false
 //                arrMines[i][j].btn.text = "M"
                 // TODO : Remove final app
-                arrMines[i][j].btn.setBackgroundResource(R.drawable.mine_mine)
+//                arrMines[i][j].btn.setBackgroundResource(R.drawable.mine_mine)
 
                 // adding count to all the adjacent elements
                 if(i-1 >= 0 && j-1>=0){

@@ -9,9 +9,14 @@
     <string name="easy">Easy</string>
     <string name="medium">Medium</string>
     <string name="hard">Hard</string>
-    <string name="start">Start</string>
+    <string name="start">Play</string>
     <string name="mines">Mines</string>
     <string name="restart">Restart</string>
     <string name="time">Time</string>
     <string name="empty_string"> </string>
+    <string name="custom">Custom</string>
+    <string name="or">OR</string>
+    <string name="Rows">Rows</string>
+    <string name="Columns">Columns</string>
+    <string name="Alert_Message">Enter rows and columns</string>
 </resources>
