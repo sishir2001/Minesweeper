@@ -13,4 +13,5 @@
     <string name="mines">Mines</string>
     <string name="restart">Restart</string>
     <string name="time">Time</string>
+    <string name="empty_string"> </string>
 </resources>

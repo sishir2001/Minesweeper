@@ -4,9 +4,11 @@ import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.*
 const val BEST_SCORE = "BEST_SCORE"
 const val PREV_SCORE = "PREV_SCORE"
+const val SHARED_PREF_NAME = "Game"
 class MainActivity : AppCompatActivity() {
     private lateinit var diffLevel : RadioGroup
     private lateinit var btnStart : Button
@@ -52,16 +54,20 @@ class MainActivity : AppCompatActivity() {
     private fun loadData(){
         textViewPrevScore = findViewById(R.id.textViewPrevTime)
         textViewBestScore = findViewById(R.id.textViewBestTime)
-        val sharedPref = getPreferences(Context.MODE_PRIVATE)
-        val bestScore:Int = sharedPref.getInt(BEST_SCORE,-1)
-        val prevScore:Int = sharedPref.getInt(PREV_SCORE,-1)
-        if(bestScore == -1 && prevScore == -1){
-            textViewBestScore.text = getString(R.string.no_best_time)
-            textViewPrevScore.text = getString(R.string.no_previous_time)
-        }
-        else{
+        val sharedPref = getSharedPreferences(SHARED_PREF_NAME,Context.MODE_PRIVATE)
+        var bestScore:Int = sharedPref.getInt(BEST_SCORE,0)
+        val prevScore:Int = sharedPref.getInt(PREV_SCORE,0)
+
+            if((bestScore == 0 && prevScore != 0)|| prevScore < bestScore){
+                bestScore = prevScore
+            }
             textViewBestScore.text = getString(R.string.best_time,bestScore)
             textViewPrevScore.text = getString(R.string.previous_time,prevScore)
-        }
+            // storing best score in sharedPref
+            with(sharedPref.edit()){
+                putInt(BEST_SCORE,bestScore)
+                apply()
+            }
+        Log.i("MainActivity","Best Score : $bestScore , Prev Score : $prevScore")
     }
 }
