@@ -1,3 +1,4 @@
+![Twitter URL](https://img.shields.io/twitter/url?label=follow%20me&style=social&url=https%3A%2F%2Ftwitter.com%2FSespiStone)
 # Minesweeper
 android app version of the famous and nostalgic game .
 
